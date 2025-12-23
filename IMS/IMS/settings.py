@@ -86,15 +86,17 @@ WSGI_APPLICATION = 'IMS.wsgi.application'
 
 
 
+SECRET_KEY = config('SECRET_KEY')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'IMS_db',
-        'USER': 'postgres',
-        'PASSWORD': 'sujan@789',
-        'HOST': 'localhost',
-        'PORT': '5432',
-    },
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
 
 
