@@ -44,13 +44,6 @@ class ProductView(GenericViewSet):
             return Response(serializer.errors,status.HTTP_400_BAD_REQUEST)  
     
     def retrieve(self,request,pk):
-        
-        # try:
-        #     product_obj = Product.objects.get(id=pk)  
-        # except:
-        #     return Response('data not found', status.HTTP_404_NOT_FOUND)
-        # serializer = self.get_serializer(product_obj)  
-        # return Response(serializer.data) 
 
         product_obj = self.get_object()   #id call automatically by lookup field
         serializer = self.get_serializer(product_obj)  
@@ -152,16 +145,7 @@ def group_listing(request):
     serializer = GroupSerializer(objs,many =True)
     return Response(serializer.data)
     
-    
 
-
-
-
-
-
-
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
 
 class register_view(GenericViewSet):       
     queryset = User.objects.all()   
@@ -180,14 +164,7 @@ class register_view(GenericViewSet):
         else:
             return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
     
-    
-# class login_view(GenericViewSet):
-#     queryset = User.objects.all()
-    
-#     serializer_class
 
-# @api_view(['POST'])
-# @permission_classes([AllowAny])
 class login_view(GenericViewSet):       
     queryset = User.objects.all() 
     permission_classes = []  
@@ -205,11 +182,6 @@ class login_view(GenericViewSet):
             return Response({'token':token.key},status=status.HTTP_200_OK)
 
 
-    # @api_view(['GET'])
-    # def group_listing(request):
-        # group_objs = Group.objects.all()
-        # serializer = GroupSerializer(group_objs,many=True)
-        # return Response(group_objs)
 
 class group_view(GenericViewSet):
     queryset = Group.objects.all()
