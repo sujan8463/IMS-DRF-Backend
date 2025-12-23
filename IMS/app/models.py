@@ -8,13 +8,6 @@ class Group(models.Model):
     def __str__(self):
         return self.name
 
-# class User(models.Model):
-#     username = models.CharField(max_length=150, unique=True)
-#     password = models.CharField(max_length=128)
-#     groups = models.ForeignKey(Group, on_delete=models.CASCADE, null=True, blank=True)
-
-#     def __str__(self):
-#         return self.username
     
     
 class ProductType(models.Model):
